@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook for redirection
 import './Login.css'; // Import the CSS file for styling
 
 const Login = () => {
   const [user, setUser] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,7 +16,12 @@ const Login = () => {
     e.preventDefault();
     axios
       .post('http://localhost:8081/api/auth/login', user)
-      .then((response) => alert(response.data))
+      .then((response) => {
+        // On successful login, save user data in localStorage (optional)
+        localStorage.setItem('user', JSON.stringify(response.data)); // Store user data in localStorage
+        // Redirect to profile page after successful login
+        navigate('/profile');
+      })
       .catch(() => alert('Invalid credentials'));
   };
 

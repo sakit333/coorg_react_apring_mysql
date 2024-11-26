@@ -15,7 +15,6 @@ function App() {
           <Link to="/" className="nav-button">Home</Link>
           <Link to="/signup" className="nav-button">Signup</Link>
           <Link to="/login" className="nav-button">Login</Link>
-          <Link to="/profile" className="nav-button">Profile</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
