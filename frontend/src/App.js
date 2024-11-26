@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <h1>React Auth App</h1>
+        <h1>React Spring Mysql App</h1>
         <nav className="nav-bar">
           <Link to="/" className="nav-button">Home</Link>
           <Link to="/signup" className="nav-button">Signup</Link>
