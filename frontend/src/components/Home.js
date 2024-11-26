@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Sample data for Coorg photos and locations
 const coorgPhotos = [
@@ -52,6 +52,11 @@ const Home = () => {
       setLoading(false);
     }
   };
+
+  // Use useEffect to call fetchPhotos when the component mounts
+  useEffect(() => {
+    fetchPhotos(); // Fetch the photos when the component mounts
+  }, []); // Empty dependency array means this runs only once, after the first render
 
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
