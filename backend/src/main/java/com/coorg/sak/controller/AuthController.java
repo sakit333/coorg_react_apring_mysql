@@ -21,15 +21,6 @@ public class AuthController {
         return userService.registerUser(user);
     }
 
-    // @PostMapping("/login")
-    // public String login(@RequestBody User user) {
-    //     User loggedInUser = userService.loginUser(user.getEmail(), user.getPassword());
-    //     if (loggedInUser != null) {
-    //         return "login successful";
-    //     }
-    //     return "Invalid Credentials";
-    // }
-
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
     User loggedInUser = userService.loginUser(user.getEmail(), user.getPassword());
@@ -39,10 +30,4 @@ public class AuthController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
     }
 
-
-    @GetMapping("/profile")
-    public String getProfile() {
-        System.out.println("working");
-        return "working";
-    }
 }
