@@ -1,5 +1,12 @@
 ## To run Spring app
-- `mvn -f .\sak\ spring-boot:run`
+- `mvn -f .\backend\ spring-boot:run`
+
+
+## To load node modules
+- `npm install`
+- `npm i`
+- `npm install react-router-dom`
 
 ## To run React app
-- `npm --prefix .\coorg-app\ start`
+- `npm --prefix .\frontend\ start`
+
