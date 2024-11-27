@@ -10,10 +10,12 @@ const Signup = () => {
     setUser({ ...user, [name]: value });
   };
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8081/api';
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8081/api/auth/signup', user)
+      .post(`${API_URL}/auth/signup`, user)
       .then((response) => alert('User registered successfully'))
       .catch((error) => alert('Error registering user'));
   };

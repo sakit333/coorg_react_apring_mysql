@@ -7,6 +7,8 @@ const Login = () => {
   const [user, setUser] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8081/api';
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -15,7 +17,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8081/api/auth/login', user)
+      .post(`${API_URL}/auth/login`, user)
       .then((response) => {
         // On successful login, save user data in localStorage (optional)
         localStorage.setItem('user', JSON.stringify(response.data)); // Store user data in localStorage

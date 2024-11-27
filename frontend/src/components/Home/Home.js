@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Home.css'; // Import the CSS file for styling
 
 // Sample data for Coorg photos and locations
 const coorgPhotos = [
@@ -59,26 +60,29 @@ const Home = () => {
   }, []); // Empty dependency array means this runs only once, after the first render
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Coorg Photo Gallery</h1>
+    <div className="home-container">
+      {/* Sak Logo */}
+      <div className="logo-container">
+        <img
+          src="https://t3.ftcdn.net/jpg/05/18/89/58/360_F_518895860_Ag4x1KrBZsKES247XiqW0ywPWdiupbdj.jpg"
+          alt="SAK Logo"
+          className="sak-logo"
+        />
+      </div>
+      <h1 className="title">Coorg Photo Gallery</h1>
       {loading && <p>Loading...</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', justifyContent: 'center' }}>
+      {error && <p className="error">{error}</p>}
+      <div className="photo-gallery">
         {photos.map((photo) => (
-          <div key={photo.id} style={{ width: '250px', border: '1px solid #ddd', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', overflow: 'hidden', textAlign: 'center', backgroundColor: '#f9f9f9' }}>
+          <div key={photo.id} className="photo-card">
             <img
               src={photo.url}
               alt={photo.title}
-              style={{
-                width: '100%',
-                height: '200px',
-                objectFit: 'cover',
-                borderBottom: '1px solid #ddd',
-              }}
+              className="photo-image"
             />
-            <div style={{ padding: '10px' }}>
-              <h3 style={{ fontSize: '16px', margin: '0', color: '#333' }}>{photo.title}</h3>
-              <p style={{ fontSize: '14px', color: '#888', margin: '5px 0' }}>{photo.location}</p>
+            <div className="photo-details">
+              <h3 className="photo-title">{photo.title}</h3>
+              <p className="photo-location">{photo.location}</p>
             </div>
           </div>
         ))}
