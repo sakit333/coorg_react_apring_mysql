@@ -6,23 +6,6 @@ pipeline {
             steps {
                 echo 'Building..'
             }
-            post {
-                always {
-                    echo 'Always'
-                }
-                success {
-                    echo 'Success'
-                }
-                unstable {
-                    echo 'Unstable'
-                }
-                failure {
-                    echo 'Failure'
-                }
-                changed {
-                    echo 'Changed'
-                }
-            }
         }
     }
 }
