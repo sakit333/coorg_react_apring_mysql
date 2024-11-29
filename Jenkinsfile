@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environments {
-
-    }
-
     stages {
         stage('to now info about tools') {
             steps {
@@ -15,12 +11,9 @@ pipeline {
         }
         stage('Build React App') {
             steps {
-                dir('frontend') {
-                    echo 'Building React frontend...'
-                    sh 'npm install'
-                    sh 'npm run build'
-                    sh 'npm i'
-                }
+                echo 'Building React frontend using shell script...'
+                sh 'chmod +x build_frontend.sh'
+                sh './build_frontend.sh'
             }
         }
     }
