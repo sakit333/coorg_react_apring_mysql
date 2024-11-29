@@ -48,6 +48,7 @@
 ## To deploy in jenkins
 
 - plugins: `NodeJS Plugin`
+- Tools: `NodeJS` - Version: `v20.17.0`
 
 ## Other Options
 - Option 2: Manually Install Node.js
