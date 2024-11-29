@@ -43,3 +43,29 @@
 - For frontend: `docker pull sakit333/frontend:latest`
 - For backend: `docker pull sakit333/backend:latest`
 - Start the services: Now you can use Docker Compose to start both containers: `docker-compose up`
+
+---
+## To deploy in jenkins
+
+- plugins: `NodeJS Plugin`
+
+## Other Options
+- Option 2: Manually Install Node.js
+- If you don’t want to use the plugin, you can manually install Node.js on your Jenkins agent.
+- Install Node.js on Jenkins Agent:
+
+- For Ubuntu:
+```bash
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+- For CentOS/RHEL:
+```bash
+curl -fsSL https://rpm.nodesource.com/setup_16.x | bash -
+sudo yum install -y nodejs
+```
+- Verify the installation:
+```bash
+node -v
+npm -v
+```

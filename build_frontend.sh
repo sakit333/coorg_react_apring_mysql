@@ -1,22 +1,23 @@
 #!/bin/bash
 
-# Build React frontend with conditional dependency installation
+echo "Building React frontend..."
 
-# Check if node_modules directory exists
+# Check for Node.js and npm
+if ! command -v npm &> /dev/null; then
+    echo "Error: npm is not installed or not in PATH."
+    exit 1
+fi
+
+# Check if `node_modules` exists
 if [ -d "node_modules" ]; then
-    echo "Dependencies are already installed, skipping npm install..."
+    echo "Dependencies already installed, skipping npm install..."
 else
     echo "Installing dependencies..."
-    npm install
+    npm install || { echo "npm install failed"; exit 1; }
 fi
 
-echo "Building React application..."
-npm run build
+# Build the React app
+echo "Building the React application..."
+npm run build || { echo "Build failed"; exit 1; }
 
-# Reinstall dependencies if necessary
-if [ -d "node_modules" ]; then
-    echo "Reinstalling dependencies..."
-    npm i
-else
-    echo "node_modules not found, skipping npm i..."
-fi
+echo "React frontend build completed successfully."
