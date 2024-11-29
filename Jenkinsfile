@@ -1,16 +1,26 @@
 pipeline {
     agent any
 
+    enivironments {
+
+    }
+
     stages {
-        stage('Pull the source code') {
+        stage('to now info about tools') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('pwd') {
-            steps {
+                echo 'Hello, world!'
                 sh 'pwd'
                 sh 'whoami'
+            }
+        }
+        stage('Build React App') {
+            steps {
+                dir('frontend') {
+                    echo 'Building React frontend...'
+                    sh 'npm install'
+                    sh 'npm run build'
+                    sh 'npm i'
+                }
             }
         }
     }
