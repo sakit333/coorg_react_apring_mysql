@@ -35,18 +35,8 @@ pipeline {
             steps {
                 dir('frontend') {
                     echo 'Installing npm and setting up permissions for build_frontend.sh'
-            
-                    // Check if the file exists before applying chmod
-                    sh """
-                    if [ -f build_frontend.sh ]; then
-                        echo "File build_frontend.sh exists. Applying permissions."
-                        chmod +x build_frontend.sh
-                        ./build_frontend.sh
-                    else
-                        echo "File build_frontend.sh not found!"
-                        exit 1  // Fail the build if the file is not found
-                    fi
-                    """
+                    sh "chmod +x build_frontend.sh"
+                    sh "./build_frontend.sh"
                 }
             }
         }
